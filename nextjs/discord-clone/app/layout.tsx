@@ -1,18 +1,22 @@
 "use client"
 import "./globals.css";
+// TODO: SEO対策については別途調べる
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "./registry";
-import { createGlobalStyle } from "styled-components";
+// import { createGlobalStyle } from "styled-components";
+// TODO: styled-compoentのテーマ設定を追加する
+import { Normalize } from "styled-normalize";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    padding: 0;
-    background-color: red;
-  }
-`
+// const GlobalStyle = createGlobalStyle`
+//   body {
+//     padding: 0;
+//     margin: 0;
+//     background-color: blue;
+//   }
+// `
 
 // TODO: SEO対策については別途調べる
 // export const metadata: Metadata = {
@@ -28,7 +32,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <GlobalStyle />
+      <Normalize />
+      {/* <GlobalStyle /> */}
       {/* TODO: SEO Componentについては別途調べる */}
       <body className={inter.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
