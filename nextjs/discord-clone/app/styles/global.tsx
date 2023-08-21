@@ -3,20 +3,18 @@ import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import { FC } from "react";
 
-interface Props {
-  children: React.ReactNode;
-}
+const GlobalStyleComponent = createGlobalStyle`
+  ${Normalize}
+  body {
+    padding: 100px;
+    background-color: red;
+  }
+`
 
-const GlobalStyle: FC<Props> = ({ children }) => {
+const GlobalStyle: FC = () => {
   return (
     <>
-      <Normalize />
-      <body>
-        <div>
-          <h1>attach normalie css</h1>
-          <p>this is global style</p>
-        </div>
-      </body>
+      <GlobalStyleComponent />
     </>
   );
 };
