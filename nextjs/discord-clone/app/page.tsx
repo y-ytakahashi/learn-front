@@ -1,22 +1,13 @@
 "use client";
-import styled from "styled-components";
-
-const DiscordWrapper = styled.div`
-  text-align: center`
-
-
-const DiscordHeader = styled.h1`
-  background-color: red;
-`;
+import Sidebar from "@/components/sidebar/sidebar";
 
 export default function Home() {
   return (
-    <main>
-      <DiscordWrapper>
-        <DiscordHeader>
-          hello discord
-        </DiscordHeader>
-      </DiscordWrapper>
-    </main>
+    <div>
+      <p>Hello Discord</p>
+      {/*  sidebar */}
+      <Sidebar />
+      {/*  home*/}
+    </div>
   );
 }

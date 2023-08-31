@@ -2,7 +2,7 @@
 import StyledComponentsRegistry from "./registry";
 import React from "react";
 import GlobalStyles from "@/app/styles/globalStyles";
-import { ThemeProvider} from "styled-components";
+import { ThemeProvider } from "styled-components";
 import theme from "@/app/styles/theme";
 
 
@@ -12,12 +12,12 @@ export default function RootLayout({ children }: {
   return (
     <html>
     <body>
-      <StyledComponentsRegistry>
-        <GlobalStyles />
-        <ThemeProvider theme={theme}>
-          {children}
-        </ThemeProvider>
-      </StyledComponentsRegistry>
+    <StyledComponentsRegistry>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
+    </StyledComponentsRegistry>
     </body>
     </html>
   );

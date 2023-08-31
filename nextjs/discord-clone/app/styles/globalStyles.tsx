@@ -5,7 +5,6 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
   * {
     margin:0;
-    background: red;
   }
 `
 
