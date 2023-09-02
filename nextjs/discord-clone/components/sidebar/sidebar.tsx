@@ -3,6 +3,8 @@ import styled from "styled-components";
 //MUI
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
+//SideBarComponent
+import SidebarChannel from "@/components/sidebar/sidebarChannel";
 
 const SideBarMain = styled.div`
   display: flex;
@@ -85,6 +87,8 @@ const Sidebar = () => {
            <h4>プログラミングチャンネル</h4>
            <SideBarAddIcon />
          </SideBarHeader>
+         <SidebarChannel />
+         <SidebarChannel />
        </SideBarChannels>
      </SideBarRight>
    </SideBarMain>
