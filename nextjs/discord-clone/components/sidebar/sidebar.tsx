@@ -11,7 +11,6 @@ const SideBarMain = styled.div`
   display: flex;
   flex: 0.35;
   height: 100vh;
-  background-color:#32363D; //TODO あとでhomeに移動させる
 `;
 const SideBarLeft = styled.div`
   display: flex;
