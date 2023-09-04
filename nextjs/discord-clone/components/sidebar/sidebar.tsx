@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 //SideBarComponent
 import SidebarChannel from "@/components/sidebar/sidebarChannel";
+import SidebarFooter from "@/components/sidebar/sidebarFooter";
 
 const SideBarMain = styled.div`
   display: flex;
@@ -21,6 +22,8 @@ const SideBarLeft = styled.div`
 `;
 const SideBarRight = styled.div`
   background-color: #2B2D32;
+  width: 300px;
+  position: relative;
 `;
 const SideBarRightTop = styled.div`
   color: #FFF;
@@ -28,6 +31,9 @@ const SideBarRightTop = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  h3 {
+    font-size: 1.6rem;
+  } 
 `;
 const ServerIcon = styled.div`
   width: 60px;
@@ -90,6 +96,7 @@ const Sidebar = () => {
          <SidebarChannel />
          <SidebarChannel />
        </SideBarChannels>
+       <SidebarFooter />
      </SideBarRight>
    </SideBarMain>
   );
