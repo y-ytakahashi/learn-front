@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ChatHeader from "@/components/chat/chatHeader";
 import { AddCircleOutlined, CardGiftcard, EmojiEmotions, Gif } from "@mui/icons-material";
+import ChatMessage from "@/components/chat/chatMessage";
 
 const ChatContainer = styled.div`
   display: flex;
@@ -44,14 +45,19 @@ const ChatInputButton = styled.button`
   display: none;
 `
 
+const ChatMessageContainer = styled.div`
+  flex-grow: 1;
+`
+
 const Chat = () => {
   return (
     <ChatContainer>
-      {/*  chat header */}
       <ChatHeader />
-      {/*  chat message */}
-      <div>chat message</div>
-      {/*  chat input*/}
+      <ChatMessageContainer>
+        <ChatMessage />
+        <ChatMessage />
+        <ChatMessage />
+      </ChatMessageContainer>
       <ChatInput>
         <AddCircleOutlined />
         <form>
