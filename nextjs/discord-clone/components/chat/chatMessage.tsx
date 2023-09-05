@@ -20,8 +20,6 @@ const ChatMessage = () => {
   return (
     <ChatMessageContainer>
       <Avatar sx={{
-        color: "red",
-        fontSize: "0.8rem",
         height: "4rem",
         width: "4rem"
       }} />
