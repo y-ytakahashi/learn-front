@@ -3,7 +3,10 @@ import Sidebar from "@/components/sidebar/sidebar";
 import Chat from "@/components/chat/chat";
 import styled from "styled-components";
 import Login from "@/components/login/login";
-import { useAppSelector } from "@/app/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { useEffect } from "react";
+import { auth } from "@/firebase";
+import { login, logout } from "@/features/userSlice";
 
 
 const HomeContainer = styled.div`
@@ -13,9 +16,26 @@ const HomeContainer = styled.div`
 
 
 export default function Home() {
-
   const user = useAppSelector((state) => state.user);
-  console.log(user);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((loginUser) => {
+      console.log(loginUser);
+      if (loginUser) {
+        dispatch(login({
+          uid: loginUser.uid,
+          photo: loginUser.photoURL,
+          email: loginUser.email,
+          displayName: loginUser.displayName
+        }));
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
+
 
   return (
     <HomeContainer>
