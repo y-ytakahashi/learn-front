@@ -10,6 +10,8 @@ import Image from "next/image";
 // Discord icon image
 import discordIconImage from "@/public/discordIcon.png";
 import vercelImage from "@/public/vercel.svg";
+import useCollection from "@/hooks/useCollection";
+
 
 const SideBarMain = styled.div`
   display: flex;
@@ -54,7 +56,7 @@ const ImageWrapper = styled(Image)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`
+`;
 
 const SideBarChannels = styled.div`
   padding: 13px;
@@ -74,6 +76,9 @@ const SideBarAddIcon = styled(AddIcon)`
 
 
 const Sidebar = () => {
+
+  const { documents: channels } = useCollection("channels");
+
   return (
     <SideBarMain>
       <SideBarLeft>
@@ -96,8 +101,9 @@ const Sidebar = () => {
             <h4>プログラミングチャンネル</h4>
             <SideBarAddIcon />
           </SideBarHeader>
-          <SidebarChannel />
-          <SidebarChannel />
+          {channels.map(({ id, channel }) => (
+            <SidebarChannel key={id} id={id} channel={channel} />
+          ))}
         </SideBarChannels>
         <SidebarFooter />
       </SideBarRight>

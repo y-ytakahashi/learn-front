@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { DocumentData } from "@firebase/firestore";
 
 const SidebarChannelWrapper = styled.div`
   padding-left: 20px;
   margin-top: 2px;
-  
+
   h4 {
     color: gray;
     display: flex;
@@ -16,22 +17,26 @@ const SidebarChannelWrapper = styled.div`
       color: white;
       background-color: #33363D;
       border-radius: 7px;
-  }
-`
+    }
+`;
 
 const SidebarChannelHash = styled.span`
   font-size: 22px;
   padding-right: 5px;
-`
+`;
 
 
-
-const SidebarChannel = () => {
+type Props = {
+  id: string,
+  channel: DocumentData
+}
+const SidebarChannel = ({ channel }: Props) => {
+  console.log(channel);
   return (
     <SidebarChannelWrapper>
       <h4>
         <SidebarChannelHash>#</SidebarChannelHash>
-        udemy
+        {channel.channelName}
       </h4>
     </SidebarChannelWrapper>
   );
