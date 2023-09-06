@@ -4,6 +4,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MicIcon from "@mui/icons-material/Mic";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import { Settings } from "@mui/icons-material";
+import { auth } from "@/firebase";
+import { useAppSelector } from "@/app/hooks";
+import Image from "next/image";
 
 const SideBarFooterWrapper = styled.div`
   position: absolute;
@@ -22,23 +25,25 @@ const SidebarAccount = styled.div`
   align-items: center;
 
   img {
-    width: 60rem;
+    width: 4rem;
+    border-radius: 50%;
   }
-
 `;
+
 const SidebarCtmAccountIcon = styled(AccountCircleIcon)`
   &.AccountIcon {
     font-size: 4.5rem;
   }
 `;
 const AccountName = styled.div`
-  margin-left: 1.6rem;
+  margin-left: 0.8rem;
+  line-height: 1.2rem;
 
   h4 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: white;
     font-weight: 500;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
   }
 
   span {
@@ -55,25 +60,32 @@ const SidebarVoice = styled.div`
 
 `;
 const SidebarFooter = () => {
+  const user = useAppSelector((state) => state.user);
+
   return (
     <SideBarFooterWrapper>
       <SidebarAccount>
-        <SidebarCtmAccountIcon className={"AccountIcon"} />
-        <AccountName>
-          <h4>discord-clone</h4>
-          <span>#8162</span>
-        </AccountName>
+        {
+          user?.photo ? <Image src={user.photo} alt={"user icon"} width={40} height={40} /> :
+            <SidebarCtmAccountIcon className={"AccountIcon"} onClick={() => {
+              auth.signOut().then();
+            }} />
 
+        }
+        <AccountName>
+          <h4>{user?.displayName}</h4>
+          <span>#{user?.uid.substring(0, 4)}</span>
+        </AccountName>
       </SidebarAccount>
       <SidebarVoice>
         <MicIcon sx={{
-          fontSize: "2rem",
+          fontSize: "2rem"
         }} />
         <HeadphonesIcon sx={{
-          fontSize: "2rem",
-        }}/>
+          fontSize: "2rem"
+        }} />
         <Settings sx={{
-          fontSize:"2rem"
+          fontSize: "2rem"
         }} />
       </SidebarVoice>
 
