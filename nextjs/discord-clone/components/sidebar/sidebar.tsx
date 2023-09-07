@@ -11,6 +11,8 @@ import Image from "next/image";
 import discordIconImage from "@/public/discordIcon.png";
 import vercelImage from "@/public/vercel.svg";
 import useCollection from "@/hooks/useCollection";
+import { addDoc, collection } from "@firebase/firestore";
+import { db } from "@/firebase";
 
 
 const SideBarMain = styled.div`
@@ -78,6 +80,14 @@ const SideBarAddIcon = styled(AddIcon)`
 const Sidebar = () => {
 
   const { documents: channels } = useCollection("channels");
+  const addChannel = async () => {
+    const channelName = prompt("create new channel");
+    if (channelName) {
+      await addDoc(collection(db, "channels"), {
+        channelName: channelName
+      });
+    }
+  };
 
   return (
     <SideBarMain>
@@ -99,7 +109,7 @@ const Sidebar = () => {
           <SideBarHeader>
             <ExpandMoreIcon />
             <h4>プログラミングチャンネル</h4>
-            <SideBarAddIcon />
+            <SideBarAddIcon onClick={() => addChannel()} />
           </SideBarHeader>
           {channels.map(({ id, channel }) => (
             <SidebarChannel key={id} id={id} channel={channel} />
