@@ -7,7 +7,7 @@ interface Channels {
   channel: DocumentData;
 }
 
-const UseCollection = (data: string) => {
+const useCollection = (data: string) => {
   const [documents, setDocuments] = useState<Channels[]>([]);
   const collectionRef = query(collection(db, data));
 
@@ -24,4 +24,4 @@ const UseCollection = (data: string) => {
   return { documents };
 };
 
-export default UseCollection;
+export default useCollection;

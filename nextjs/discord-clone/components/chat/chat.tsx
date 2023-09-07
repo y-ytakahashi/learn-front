@@ -5,13 +5,14 @@ import { AddCircleOutlined, CardGiftcard, EmojiEmotions, Gif } from "@mui/icons-
 import ChatMessage from "@/components/chat/chatMessage";
 import { useAppSelector } from "@/app/hooks";
 import { useState } from "react";
+import useSubCollection from "@/hooks/useSubCollection";
 
 const ChatContainer = styled.div`
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  background-color: #32363D; //TODO あとでhomeに移動させる
-
+  background-color: #32363D;
+  height: 100vh;
 `;
 
 const ChatInput = styled.div`
@@ -50,25 +51,34 @@ const ChatInputButton = styled.button`
 
 const ChatMessageContainer = styled.div`
   flex-grow: 1;
+  overflow-y: scroll;
 `;
+
 
 const Chat = () => {
   const [inputText, setInputText] = useState<string>("");
   const channelName = useAppSelector((state) => state.channel.channelName);
+  const { subDocuments: messages } = useSubCollection("channels", "messages");
 
-  console.log(inputText);
-  const sendMessage = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const sendMessage = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log("send message");
+    setInputText("");
   };
 
   return (
     <ChatContainer>
       <ChatHeader channelName={channelName} />
       <ChatMessageContainer>
-        <ChatMessage />
-        <ChatMessage />
-        <ChatMessage />
+        {messages.map(({ timestamp, message, user }, index) => (
+            //  warn indexをkeyにするのは良くない
+            <ChatMessage
+              key={index}
+              timestamp={timestamp}
+              message={message}
+              user={user}
+            />
+          )
+        )}
       </ChatMessageContainer>
       <ChatInput>
         <AddCircleOutlined />
@@ -76,6 +86,7 @@ const Chat = () => {
           <input
             type="text"
             placeholder={"#Udemy Send message"}
+            value={inputText}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)} />
           <ChatInputButton type={"submit"} onClick={(e) => sendMessage(e)}>
             Send

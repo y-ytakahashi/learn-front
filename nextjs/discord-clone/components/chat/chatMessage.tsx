@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Avatar } from "@mui/material";
+import { Timestamp } from "@firebase/firestore";
 
 const ChatMessageContainer = styled.div`
   display: flex;
@@ -16,18 +17,30 @@ const MessageTimeStamp = styled.span`
   margin-left: 0.8rem;
   font-size: 1.2rem;
 `;
-const ChatMessage = () => {
+
+type Props = {
+  timestamp: Timestamp;
+  message: string;
+  user: {
+    uid: string;
+    photo: string;
+    email: string;
+    displayName: string;
+  }
+}
+
+const ChatMessage = ({ timestamp, message, user }: Props) => {
   return (
     <ChatMessageContainer>
-      <Avatar sx={{
+      <Avatar src={user?.photo} sx={{
         height: "4rem",
         width: "4rem"
       }} />
       <MessageInfo>
-        <h4> y-y code
-          <MessageTimeStamp>2023/9/5</MessageTimeStamp>
+        <h4> {user?.displayName}
+          <MessageTimeStamp>{new Date(timestamp?.toDate()).toLocaleString()}</MessageTimeStamp>
         </h4>
-        <p>Message body</p>
+        <p>{message}</p>
       </MessageInfo>
     </ChatMessageContainer>
   );

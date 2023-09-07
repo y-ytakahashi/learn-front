@@ -32,19 +32,20 @@ type Props = {
   id: string,
   channel: DocumentData
 }
-const SidebarChannel = ({ channel }: Props) => {
-  const dispatch = useAppDispatch();
+const SidebarChannel = ({ id, channel }: Props) => {
+    const dispatch = useAppDispatch();
 
-  return (
-    <SidebarChannelWrapper onClick={() => dispatch(setChannelInfo({
-      channelId: channel.id,
-      channelName: channel.channelName
-    }))}>
-      <h4>
-        <SidebarChannelHash>#</SidebarChannelHash>
-        {channel.channelName}
-      </h4>
-    </SidebarChannelWrapper>
-  );
-};
+    return (
+      <SidebarChannelWrapper onClick={() => dispatch(setChannelInfo({
+        channelId: id,
+        channelName: channel.channelName
+      }))}>
+        <h4>
+          <SidebarChannelHash>#</SidebarChannelHash>
+          {channel.channelName}
+        </h4>
+      </SidebarChannelWrapper>
+    );
+  }
+;
 export default SidebarChannel;
