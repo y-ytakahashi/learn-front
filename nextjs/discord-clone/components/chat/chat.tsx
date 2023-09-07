@@ -1,7 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 import ChatHeader from "@/components/chat/chatHeader";
 import { AddCircleOutlined, CardGiftcard, EmojiEmotions, Gif } from "@mui/icons-material";
 import ChatMessage from "@/components/chat/chatMessage";
+import { useAppSelector } from "@/app/hooks";
+import { useState } from "react";
 
 const ChatContainer = styled.div`
   display: flex;
@@ -43,16 +46,25 @@ const ChatInputIcons = styled.div`
 
 const ChatInputButton = styled.button`
   display: none;
-`
+`;
 
 const ChatMessageContainer = styled.div`
   flex-grow: 1;
-`
+`;
 
 const Chat = () => {
+  const [inputText, setInputText] = useState<string>("");
+  const channelName = useAppSelector((state) => state.channel.channelName);
+
+  console.log(inputText);
+  const sendMessage = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("send message");
+  };
+
   return (
     <ChatContainer>
-      <ChatHeader />
+      <ChatHeader channelName={channelName} />
       <ChatMessageContainer>
         <ChatMessage />
         <ChatMessage />
@@ -61,18 +73,22 @@ const Chat = () => {
       <ChatInput>
         <AddCircleOutlined />
         <form>
-          <input type="text" placeholder={"#Udemy Send message"} />
-          <ChatInputButton type={"submit"}>
+          <input
+            type="text"
+            placeholder={"#Udemy Send message"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)} />
+          <ChatInputButton type={"submit"} onClick={(e) => sendMessage(e)}>
             Send
           </ChatInputButton>
         </form>
         <ChatInputIcons>
-          <CardGiftcard />
-          <Gif />
-          <EmojiEmotions />
+          <CardGiftcard sx={{ fontSize: "3.2rem" }} />
+          <Gif sx={{ fontSize: "3.2rem" }} />
+          <EmojiEmotions sx={{ fontSize: "3.2rem" }} />
         </ChatInputIcons>
       </ChatInput>
     </ChatContainer>
-  );
+  )
+    ;
 };
 export default Chat;

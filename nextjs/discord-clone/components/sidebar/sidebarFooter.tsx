@@ -60,7 +60,7 @@ const SidebarVoice = styled.div`
 
 `;
 const SidebarFooter = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
 
   return (
     <SideBarFooterWrapper>

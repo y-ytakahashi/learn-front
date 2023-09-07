@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { DocumentData } from "@firebase/firestore";
+import { useAppDispatch } from "@/app/hooks";
+import { setChannelInfo } from "@/features/channelSlice";
 
 const SidebarChannelWrapper = styled.div`
   padding-left: 20px;
@@ -31,9 +33,13 @@ type Props = {
   channel: DocumentData
 }
 const SidebarChannel = ({ channel }: Props) => {
-  console.log(channel);
+  const dispatch = useAppDispatch();
+
   return (
-    <SidebarChannelWrapper>
+    <SidebarChannelWrapper onClick={() => dispatch(setChannelInfo({
+      channelId: channel.id,
+      channelName: channel.channelName
+    }))}>
       <h4>
         <SidebarChannelHash>#</SidebarChannelHash>
         {channel.channelName}

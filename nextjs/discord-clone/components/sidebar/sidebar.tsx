@@ -17,7 +17,6 @@ import { db } from "@/firebase";
 
 const SideBarMain = styled.div`
   display: flex;
-  flex: 0.35;
   height: 100vh;
 `;
 const SideBarLeft = styled.div`
@@ -28,8 +27,8 @@ const SideBarLeft = styled.div`
 `;
 const SideBarRight = styled.div`
   background-color: #2B2D32;
-  width: 300px;
   position: relative;
+  width: 20rem;
 `;
 const SideBarRightTop = styled.div`
   color: #FFF;
@@ -100,7 +99,6 @@ const Sidebar = () => {
         </ServerIcon>
       </SideBarLeft>
       <SideBarRight>
-        sidebar right channel
         <SideBarRightTop>
           <h3>Discord</h3>
           <ExpandMoreIcon />

@@ -10,7 +10,14 @@ const ChatHeaderContainer = styled.div`
   padding-top: 1rem;
 `;
 const ChatHeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
   padding-left: 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+  .span {
+    font-weight: 600;
+  }
 `;
 const ChatHeaderRight = styled.div`
   padding-right: 1.5rem;
@@ -24,7 +31,9 @@ const ChatHeaderRight = styled.div`
   }
 `;
 const ChatHeaderHash = styled.span`
-  color: #7B7C85
+  color: #7B7C85;
+  font-size: 1.6rem;
+  padding-right: 0.4rem;
 `;
 const ChatHeaderSearch = styled.div`
   display: flex;
@@ -40,14 +49,18 @@ const ChatHeaderSearch = styled.div`
     border: none;
   }
 `;
-const ChatHeader = () => {
+
+type Props = {
+  channelName: string | null;
+}
+const ChatHeader = ({ channelName }: Props) => {
   return (
     <ChatHeaderContainer>
       <ChatHeaderLeft>
         <h3>
           <ChatHeaderHash>#</ChatHeaderHash>
-          Udemy
         </h3>
+        <span>{channelName ?? "null"}</span>
       </ChatHeaderLeft>
       <ChatHeaderRight>
         <Notifications />

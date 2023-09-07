@@ -16,13 +16,12 @@ const HomeContainer = styled.div`
 
 
 export default function Home() {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     auth.onAuthStateChanged((loginUser) => {
-      console.log(loginUser);
       if (loginUser) {
         dispatch(login({
           uid: loginUser.uid,
