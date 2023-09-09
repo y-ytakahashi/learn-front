@@ -15,17 +15,17 @@ function App() {
             <div>Please login to use platform</div>
           </div>
           <form className="login-form">
-            <div className="form-item">
-              <Mail />
+            <div className="item">
+              <Mail className={"icon"} />
               <input type={"text"} placeholder={"Email"} required={true} autoFocus={true} />
             </div>
-            <div className="form-item">
-              <Lock />
+            <div className="item">
+              <Lock className={"icon"} />
               <input type={"password"} placeholder={"Password"} required={true} />
             </div>
-            <div className="form-item-other">
-              <div className="checkbox">
-                <input type={"checkbox"} id={"rememberMeCheckbox"} />
+            <div className="other">
+              <div className="checkBox">
+                <input type={"checkBox"} id={"rememberMeCheckbox"} />
                 <label htmlFor={"rememberMeCheckbox"}>Remember me</label>
               </div>
               <a href={"#"}>I forgot my password</a>
@@ -35,7 +35,10 @@ function App() {
           <div className="footer">
             Don't have an account? <a href={"#"}>Create a freee account</a>
           </div>
-          <div className="socialMedia">
+        </div>
+        <div className="login-card-social">
+          <span>Other Sign-in Platform</span>
+          <div className="btn">
             <a href={"#"}>
               <Facebook />
             </a>
@@ -44,6 +47,7 @@ function App() {
             </a>
           </div>
         </div>
+
       </div>
     </>
   );
