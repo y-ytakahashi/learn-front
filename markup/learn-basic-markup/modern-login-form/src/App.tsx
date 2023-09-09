@@ -1,12 +1,12 @@
 import "./App.scss";
 import logoImage from "./assets/logo.png";
-import { Lock, Mail } from "@mui/icons-material";
+import { Lock, Mail, Facebook, Google } from "@mui/icons-material";
 
 function App() {
   return (
     <>
-      <div className="login-card">
-        <div className="container">
+      <div className="container">
+        <div className="login-card">
           <div className="logo">
             <img src={logoImage} alt="logo" />
           </div>
@@ -24,9 +24,25 @@ function App() {
               <input type={"password"} placeholder={"Password"} required={true} />
             </div>
             <div className="form-item-other">
-              {/*  add check box element*/}
+              <div className="checkbox">
+                <input type={"checkbox"} id={"rememberMeCheckbox"} />
+                <label htmlFor={"rememberMeCheckbox"}>Remember me</label>
+              </div>
+              <a href={"#"}>I forgot my password</a>
             </div>
+            <button type={"submit"}>Sign In</button>
           </form>
+          <div className="footer">
+            Don't have an account? <a href={"#"}>Create a freee account</a>
+          </div>
+          <div className="socialMedia">
+            <a href={"#"}>
+              <Facebook />
+            </a>
+            <a href={"#"}>
+              <Google />
+            </a>
+          </div>
         </div>
       </div>
     </>
