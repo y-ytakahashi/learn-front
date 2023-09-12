@@ -27,7 +27,11 @@
       ],
       "@styles/*": [
         "./styles/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
       ]
+
     }
   },
   "include": [

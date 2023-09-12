@@ -1,34 +1,6 @@
 @use "@/styles/variables" as var;
+@use "@/styles/common" as common;
 
-@mixin icon {
-  font-size: var.$h1FontSize;
-  &:hover {
-    color: var.$primaryColor;
-  }
-}
-
-@mixin btn {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  border-radius: var.$borderRadius;
-  padding: 0.8rem 1rem;
-  color: var.$whiteColor;
-  background: var.$primaryColor;
-
-  &:hover {
-    transition: .3s ease;
-    color: var.$primaryColor;
-    background: var.$primaryColorLight;
-  }
-}
-
-
-.container {
-  background: red;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
 
 .navbar {
   display: flex;
@@ -37,8 +9,9 @@
   width: 100%;
   padding: 1.5rem 2rem;
   position: fixed;
-  border-bottom: solid 1.5px var.$primaryColor;
+  border-bottom: solid 1.5px #c9b3b3;
   backdrop-filter: blur(5px);
+  z-index: 1000;
 
   .logo {
     display: flex;
@@ -53,28 +26,20 @@
 
   }
 
-  .menu {
-    .closeIcon {
-      @include icon;
-      position: absolute;
-      bottom: -15px;
-      right: 50%;
-      left: 50%;
-      color: var.$blackColor;
-      transform: translate(-50%);
-
-    }
-  }
-  .signUpBtn {
-    @include btn;
+  .right {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
 
-  .show {
-    top: 8rem;
-  }
-}
 
-@media screen and (max-width: 767px) {
+  .icon {
+    @include common.icon;
+    font-size: var.$h1FontSize;
+  }
+
   .menu {
     position: absolute;
     width: 70%;
@@ -89,6 +54,17 @@
     backdrop-filter: blur(5px);
     box-shadow: 0 2px 3px 4px rgba(183, 167, 167, 0.51);
 
+    .closeIcon {
+      @include common.icon;
+      position: absolute;
+      bottom: -15px;
+      right: 50%;
+      left: 50%;
+      color: var.$blackColor;
+      transform: translate(-50%);
+    }
+
+
     li {
       font-size: var.$h3FontSize;
       font-weight: 500;
@@ -102,7 +78,29 @@
         transition: .2s ease;
       }
     }
+  }
 
 
+  .signUpBtn {
+    @include common.btn;
+  }
+
+  .show {
+    top: 8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .menu {
+    .closeIcon {
+      @include common.icon;
+      position: absolute;
+      bottom: -15px;
+      right: 50%;
+      left: 50%;
+      color: var.$blackColor;
+      transform: translate(-50%);
+    }
   }
 }

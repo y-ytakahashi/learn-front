@@ -9,13 +9,10 @@ import { useCallback, useState } from "react";
 
 const Navbar = () => {
   // State to track and update navbar
-  const [navbar, setNavbar] = useState(true);
-  const toggleNavbar = useCallback(() => setNavbar((prev) => !prev), []);
+  const [navbar, setNavbar] = useState(false);
+
   // Function to toggle navbar
-  const showNavBar = () => {
-    setNavbar(true);
-    alert("show navbar");
-  };
+  const toggleNavbar = useCallback(() => setNavbar((prev) => !prev), []);
 
   return (
     <div className={styles.navbar}>
@@ -35,9 +32,11 @@ const Navbar = () => {
           onClick={toggleNavbar}
         />
       </div>
-      <button className={styles.signUpBtn}>Sign Up</button>
-      {/*    Icon to toggle Navbar*/}
-      <PiDotsNineBold className={styles.icon} onClick={toggleNavbar} />
+      <div className={styles.right}>
+        <button className={styles.signUpBtn}>Sign Up</button>
+        {/*    Icon to toggle Navbar*/}
+        <PiDotsNineBold className={styles.icon} onClick={toggleNavbar} />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,72 @@
+@use "@/styles/variables" as var;
+@use "@/styles/common" as common;
+
+.home {
+  position: relative;
+  height: 95vh;
+  width: 100%;
+  top: 0;
+
+  .videoBg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  .sectionText {
+    position: absolute;
+    height: 100%;
+    top: 30%;
+    bottom: 50%;
+    color: var.$whiteColor;
+
+    .icon {
+      color: var.$primaryColor;
+    }
+
+    h1 {
+      font-size: var.$h1FontSize;
+      font-weight: 900;
+    }
+
+    p {
+      padding: 1rem 0;
+      font-size: var.$normalFontSize;
+      font-weight: 500;
+    }
+
+    button {
+      @include common.btn;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: 0 2rem;
+      height: 40px;
+      font-size: var.$h3FontSize;
+    }
+
+  }
+
+  .popularPlaces {
+    display: none;
+
+
+
+    .content {
+
+      .images {
+
+      }
+    }
+
+  }
+
+}

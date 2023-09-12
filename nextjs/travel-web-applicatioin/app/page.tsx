@@ -14,9 +14,9 @@ export default function App() {
   return (
     <main className={styles.main}>
       <Navbar />
-      {/*<Home />*/}
-      {/*<Middle />*/}
-      {/*<Destinations />*/}
+      <Home />
+      <Middle />
+      <Destinations />
       {/*<Portfolio />*/}
       {/*<Reviews />*/}
       {/*<Questions />*/}

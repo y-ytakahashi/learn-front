@@ -1,1 +1,29 @@
-@use "@styles/globals";
+@use "@/styles/variables" as var;
+@use "@styles/common" as common;
+
+.destinations {
+  .container {
+    .title {
+      .redText {
+
+      }
+
+    }
+
+    .searchField {
+      display: grid;
+
+      .inputField {
+        display: flex;
+        padding-bottom: .8rem;
+
+        .icon {
+          @include common.icon;
+
+        }
+      }
+
+    }
+  }
+
+}
