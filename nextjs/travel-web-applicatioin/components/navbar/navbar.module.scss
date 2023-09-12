@@ -1,0 +1,108 @@
+@use "@/styles/variables" as var;
+
+@mixin icon {
+  font-size: var.$h1FontSize;
+  &:hover {
+    color: var.$primaryColor;
+  }
+}
+
+@mixin btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var.$borderRadius;
+  padding: 0.8rem 1rem;
+  color: var.$whiteColor;
+  background: var.$primaryColor;
+
+  &:hover {
+    transition: .3s ease;
+    color: var.$primaryColor;
+    background: var.$primaryColorLight;
+  }
+}
+
+
+.container {
+  background: red;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  border-bottom: solid 1.5px var.$primaryColor;
+  backdrop-filter: blur(5px);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      color: var.$blackColor;
+      font-size: var.$h3FontSize;
+      justify-content: center;
+    }
+
+  }
+
+  .menu {
+    .closeIcon {
+      @include icon;
+      position: absolute;
+      bottom: -15px;
+      right: 50%;
+      left: 50%;
+      color: var.$blackColor;
+      transform: translate(-50%);
+
+    }
+  }
+  .signUpBtn {
+    @include btn;
+  }
+
+  .show {
+    top: 8rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu {
+    position: absolute;
+    width: 70%;
+    top: -100rem;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgba(255, 255, 255, 0.94);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: .8s ease-in-out;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 3px 4px rgba(183, 167, 167, 0.51);
+
+    li {
+      font-size: var.$h3FontSize;
+      font-weight: 500;
+      padding: 1rem 0;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        color: var.$primaryColor;
+        border-bottom: 1.5px solid var.$primaryColor;
+        transition: .2s ease;
+      }
+    }
+
+
+  }
+}

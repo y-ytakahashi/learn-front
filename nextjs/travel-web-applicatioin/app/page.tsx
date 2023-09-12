@@ -13,16 +13,15 @@ import Footer from "@/components/footer/footer";
 export default function App() {
   return (
     <main className={styles.main}>
-      <div> Hello Travel</div>
       <Navbar />
-      <Home />
-      <Middle />
-      <Destinations />
-      <Portfolio />
-      <Reviews />
-      <Questions />
-      <Subscribe />
-      <Footer />
+      {/*<Home />*/}
+      {/*<Middle />*/}
+      {/*<Destinations />*/}
+      {/*<Portfolio />*/}
+      {/*<Reviews />*/}
+      {/*<Questions />*/}
+      {/*<Subscribe />*/}
+      {/*<Footer />*/}
     </main>
   );
 }

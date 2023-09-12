@@ -1,5 +1,98 @@
+@use "@/styles/variables" as var;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+
+body {
+  background: var(--bgColor)
+}
+
+// Default styling
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+p {
+  font-size: var(--smallFontSize);
+}
+
+html {
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img, video {
+  height: auto;
+  width: 100%;
+}
+
+.icon {
+  font-size: var(--h2FontSize);
+  cursor: pointer;
+}
+
+
+.secTitle {
+  display: none;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: var.$blackColor;
+  flex-direction: column;
+  gap: 1rem;
+
+  p {
+    color: var.$bgColor;
+    font-size: var.$normalFontSize;
+    font-weight: 400;
+  }
+}
+
+.secHeading {
+  padding-bottom: 1.5rem;
+}
+
+.btn .icon {
+  margin-left: 0.5rem;
+}
+
+.section {
+  padding: 4rem 0 2rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: var.$primaryColor;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background: var.$primaryColor;
+}
+
+// All this styling will take effect / apply in the later stage
+
+
+
+
+
