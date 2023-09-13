@@ -1,0 +1,61 @@
+@use "@/styles/variables" as var;
+@use "@styles/common" as common;
+
+.portfolio {
+  @include common.section;
+
+  .container {
+    display: grid;
+
+    .left {
+
+      .heading {
+        margin: .8rem;
+
+      }
+
+      .singlePortfolio {
+        display: flex;
+
+        .photoIcon {
+          margin: .5rem;
+          width: 10rem;
+          flex-shrink: 0;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        .info {
+          padding-bottom: .5rem;
+        }
+
+
+      }
+
+
+    }
+
+    .right {
+      width: 20rem;
+      margin: 2rem auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 8px 8px 3px 1px rgba(183,93,20,0.51);
+
+
+      img {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
