@@ -5,7 +5,7 @@ import Middle from "@/components/middle/middle";
 import Destinations from "@/components/destinations/destinations";
 import Portfolio from "@/components/portfolio/portfolio";
 import Reviews from "@/components/reviews/reviews";
-// import Questions from "@/components/questions/questions";
+import Questions from "@/components/questions/questions";
 // import Subscribe from "@/components/subscribe/subscribe";
 // import Footer from "@/components/footer/footer";
 
@@ -18,7 +18,7 @@ export default function App() {
       <Destinations />
       <Portfolio />
       <Reviews />
-      {/*<Questions />*/}
+      <Questions />
       {/*<Subscribe />*/}
       {/*<Footer />*/}
     </main>

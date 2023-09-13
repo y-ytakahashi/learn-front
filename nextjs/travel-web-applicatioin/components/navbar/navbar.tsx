@@ -22,9 +22,9 @@ const Navbar = () => {
       </div>
       <div className={clsx(styles.menu, navbar && styles.show)}>
         <ul>
-          <li className={styles.item}>About Us</li>
-          <li className={styles.item}>Testimonial</li>
-          <li className={styles.item}>Gallery</li>
+          <li className={""}>About Us</li>
+          <li className={""}>Testimonial</li>
+          <li className={""}>Gallery</li>
         </ul>
         {/* Icon to remove NavBar */}
         <AiFillCloseCircle

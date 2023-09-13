@@ -1,5 +1,5 @@
-@use "@/styles/variables" as var;
-@use "@styles/common" as common;
+@use "styles/variables" as var;
+@use "styles/common" as common;
 
 .portfolio {
   @include common.section;
@@ -48,7 +48,7 @@
       margin: 2rem auto;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 8px 8px 3px 1px rgba(183,93,20,0.51);
+      box-shadow: 8px 8px 3px 1px rgba(183, 93, 20, 0.51);
 
 
       img {
