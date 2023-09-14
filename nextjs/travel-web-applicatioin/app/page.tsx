@@ -6,7 +6,7 @@ import Destinations from "@/components/destinations/destinations";
 import Portfolio from "@/components/portfolio/portfolio";
 import Reviews from "@/components/reviews/reviews";
 import Questions from "@/components/questions/questions";
-// import Subscribe from "@/components/subscribe/subscribe";
+import Subscribe from "@/components/subscribe/subscribe";
 // import Footer from "@/components/footer/footer";
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
       <Portfolio />
       <Reviews />
       <Questions />
-      {/*<Subscribe />*/}
+      <Subscribe />
       {/*<Footer />*/}
     </main>
   );
