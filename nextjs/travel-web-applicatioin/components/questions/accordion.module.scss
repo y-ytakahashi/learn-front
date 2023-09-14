@@ -1,0 +1,52 @@
+@use "styles/variables" as var;
+@use "styles/common" as common;
+
+.accordion {
+  @include common.section;
+
+  .title {
+    position: relative;
+    display: flex;
+    font-size: var.$normalFontSize;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    justify-content: space-between;
+    background: var.$primaryColorLight;
+
+    span {
+      .icon {
+        @include common.icon;
+        font-size: 1.2rem;
+        color: var.$blackColor;
+      }
+
+    }
+  }
+
+  .description {
+    display: flex;
+    font-size: var.$smallFontSize;
+    align-items: center;
+    line-height: 20px;
+    white-space: pre-line;
+    height: 0;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    padding: 0 1rem;
+    background: var.$cardColor;
+    border-radius: 0 0 10px 10px;
+    color: var.$blackColor;
+  }
+
+  .show {
+    height: 140px;
+    opacity: 1;
+  }
+
+  .activeTitle {
+    background: var.$primaryColor;
+    border-radius: 10px 10px 0 0;
+  }
+
+}

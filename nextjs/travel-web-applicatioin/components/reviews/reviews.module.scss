@@ -52,12 +52,15 @@
 
     .imageDiv {
       margin: 1rem auto;
-      height: auto;
-      width: 250px;
       border-radius: 10px;
       overflow: hidden;
+      height: 100%;
+      width: 300px;
+
 
       img {
+        height: 100%;
+        width: 100%;
         object-fit: cover;
       }
     }
