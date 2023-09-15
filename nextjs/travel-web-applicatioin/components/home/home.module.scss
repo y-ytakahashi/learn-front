@@ -5,8 +5,8 @@
   @include common.section;
   position: relative;
   height: 95vh;
-  width: 100%;
   top: 0;
+  width: 100%;
 
   .videoBg {
     position: absolute;
@@ -24,6 +24,7 @@
   .sectionText {
     position: absolute;
     height: 100%;
+    width: 100%;
     top: 30%;
     bottom: 50%;
     color: var.$whiteColor;
@@ -56,18 +57,39 @@
 
   }
 
-  .popularPlaces {
-    display: none;
+}
 
+@include var.mq("md") {
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .sectionText {
+      position: absolute;
+      top: 20rem;
+      display: flex;
+      flex-direction: column;
+      height: 20rem;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
 
-    .content {
+      h1 {
+        font-size: var.$h1FontSize;
+        font-weight: 900;
+        max-width: 70%;
+        margin: auto;
+      }
 
-      .images {
+      p {
+        padding: 1rem
+      }
 
+      button {
+        width: 20rem;
       }
     }
-
   }
-
 }
+

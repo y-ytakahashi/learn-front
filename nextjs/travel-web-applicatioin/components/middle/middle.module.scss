@@ -2,6 +2,7 @@
 @use "styles/common" as common;
 
 .middle {
+  @include common.section;
   width: 100%;
 
   .grid {

@@ -26,13 +26,8 @@ const Home = () => {
       </div>
       <div className={styles.popularPlaces}>
         <div className={styles.content}>
-            <h3>Popular Places</h3>
-            <div className={styles.images}>
-                {/*<NextImage></NextImage>*/}
-                {/*<NextImage></NextImage>*/}
-                {/*<NextImage></NextImage>*/}
-                {/*<NextImage></NextImage>*/}
-            </div>
+          <h3>Popular Places</h3>
+          <div className={styles.images}></div>
         </div>
       </div>
     </div>

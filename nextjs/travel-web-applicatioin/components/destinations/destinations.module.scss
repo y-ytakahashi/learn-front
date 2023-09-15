@@ -2,6 +2,7 @@
 @use "styles/common" as common;
 
 .destinations {
+  @include common.section;
   display: flex;
   justify-content: center;
   align-items: center;
