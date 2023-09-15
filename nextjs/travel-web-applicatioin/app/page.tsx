@@ -7,7 +7,7 @@ import Portfolio from "@/components/portfolio/portfolio";
 import Reviews from "@/components/reviews/reviews";
 import Questions from "@/components/questions/questions";
 import Subscribe from "@/components/subscribe/subscribe";
-// import Footer from "@/components/footer/footer";
+import Footer from "@/components/footer/footer";
 
 export default function App() {
   return (
@@ -20,7 +20,7 @@ export default function App() {
       <Reviews />
       <Questions />
       <Subscribe />
-      {/*<Footer />*/}
+      <Footer />
     </main>
   );
 }

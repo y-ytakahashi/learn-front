@@ -15,13 +15,14 @@ const Navbar = () => {
   const toggleNavbar = useCallback(() => setNavbar((prev) => !prev), []);
 
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.logo}>
         <BiLogoMediumOld className={styles.icon} />
         <span>OU-Trips</span>
       </div>
       <div className={clsx(styles.menu, navbar && styles.show)}>
         <ul>
+          <li>Destination</li>
           <li className={""}>About Us</li>
           <li className={""}>Testimonial</li>
           <li className={""}>Gallery</li>
@@ -37,7 +38,7 @@ const Navbar = () => {
         {/*    Icon to toggle Navbar*/}
         <PiDotsNineBold className={styles.icon} onClick={toggleNavbar} />
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;

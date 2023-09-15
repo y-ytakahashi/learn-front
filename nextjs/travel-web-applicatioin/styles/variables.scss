@@ -19,20 +19,15 @@ $smallFontSize: 0.813rem;
 $borderRadius: 3rem;
 
 // Responsive
-$sm: 576px;
-$md: 768px;
-$lg: 992px;
-$xl: 1200px;
-
 $breakpoint: (
-        "sm" :"screen and (min-width: #{$sm}),print",
-        "md" :"screen and (min-width: #{$md}),print",
-        "lg" :"screen and (min-width: #{$lg}),print",
-        "xl" :"screen and (min-width: #{$xl}),print",
+        'sm': 576px,
+        'md': 768px,
+        'lg': 992px,
+        'xl': 1200px,
 );
 
 @mixin mq($size) {
-  @media #{map-get($breakpoint, $size)} {
+  @media screen and (min-width: #{map-get($breakpoint, $size)}) {
     @content;
   }
 }

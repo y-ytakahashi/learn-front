@@ -2,6 +2,7 @@
 @use "styles/common" as common;
 
 .home {
+  @include common.section;
   position: relative;
   height: 95vh;
   width: 100%;
