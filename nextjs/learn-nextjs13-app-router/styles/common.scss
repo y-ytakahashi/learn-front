@@ -1,0 +1,12 @@
+@use "./variables" as var;
+
+$normalFontSize: var.fz(16);
+
+
+@mixin container {
+  margin: var.fz(16) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

@@ -1,8 +1,8 @@
 @use "@/styles/variables" as var;
 
 .container {
-  padding: 0 var.fz(16);
-  display: grid;
+  display: flex;
   justify-content: center;
-  gap: var.fz(16);
+  align-items: center;
+
 }
