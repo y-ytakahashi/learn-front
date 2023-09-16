@@ -1,0 +1,10 @@
+@use "@/styles/variables" as var;
+@use "styles/common" as common;
+
+.container {
+  @include common.container;
+
+  .btn {
+    @include common.btn;
+  }
+}

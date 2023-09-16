@@ -5,9 +5,7 @@ import { useRouter } from "next/navigation";
 const RefreshButton = () => {
   const router = useRouter();
   return (
-    <div className={styles.container}>
-      <button onClick={() => router.refresh()}>Refresh current route</button>
-    </div>
+    <button className={styles.refreshBtn} onClick={() => router.refresh()}>Refresh current route</button>
   );
 };
 export default RefreshButton;

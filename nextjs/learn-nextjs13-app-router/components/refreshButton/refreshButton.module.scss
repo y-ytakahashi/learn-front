@@ -1,8 +1,6 @@
 @use "@/styles/variables" as var;
+@use "@/styles/common" as common;
 
-.container {
-
-  button {
-
-  }
+.refreshBtn {
+  @include common.btn;
 }
