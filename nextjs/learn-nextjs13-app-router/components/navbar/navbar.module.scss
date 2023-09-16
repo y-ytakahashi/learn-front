@@ -1,0 +1,24 @@
+@use "@/styles/variables" as var;
+
+.container {
+  background: #315d8d;
+  padding: var.fz(4);
+  nav {
+    display: flex;
+    align-items: stretch;
+    text-align: center;
+    justify-content: center;
+    padding-top: var.fz(16);
+    gap: var.fz(8);
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex:1;
+      padding: var.fz(10) var.fz(8);
+      border-radius: 10px;
+      background-color: antiquewhite;
+
+    }
+  }
+}

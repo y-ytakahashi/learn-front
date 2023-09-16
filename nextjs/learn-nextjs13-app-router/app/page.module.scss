@@ -1,0 +1,5 @@
+@use "@/styles/variables" as var;
+
+.container {
+  padding: 0 var.fz(16);
+}
