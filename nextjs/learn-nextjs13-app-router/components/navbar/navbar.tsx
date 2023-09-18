@@ -6,6 +6,7 @@ const Navbar = () => {
     <header className={styles.container}>
       <nav>
         <Link href={"/"}>Home</Link>
+        <Link href={"/auth/todoCrud"}>Todo</Link>
         <Link href={"/blogs"}>Nested Layout with Blogs</Link>
         <Link href={"/streaming-sr"}>Streaming SR</Link>
         <Link href={"/auth"}>Auth with CRUD</Link>

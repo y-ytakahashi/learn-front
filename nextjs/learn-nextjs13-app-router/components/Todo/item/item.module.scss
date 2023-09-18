@@ -1,0 +1,9 @@
+@use "@/styles/variables" as var;
+
+.container {
+  display: flex;
+  gap: var.fz(4);
+}
+.icon {
+  width: var.fz(20);
+}

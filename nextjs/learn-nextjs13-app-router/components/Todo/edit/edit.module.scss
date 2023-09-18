@@ -1,0 +1,15 @@
+@use "@/styles/variables" as var;
+@use "@/styles/common" as common;
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  .icon {
+    font-size: var.fz(20);
+    width: var.fz(20);
+  }
+
+}

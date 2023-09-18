@@ -1,0 +1,13 @@
+@use "@/styles/variables" as var;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - #{var.fz(60)});
+
+  .side {
+    flex: 3;
+    height: 100%;
+  }
+}
