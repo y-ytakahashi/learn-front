@@ -1,7 +1,7 @@
 import React from "react";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/database.types";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import TodoItem from "@/components/Todo/item/item";
 
 const List = async () => {
@@ -12,7 +12,7 @@ const List = async () => {
   return (
     <div>
       <ul>
-        {todos?.map((todo) => <TodoItem key={todo.id} todo={todo} />)};
+        {todos?.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
       </ul>
     </div>
   );

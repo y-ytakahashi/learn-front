@@ -32,10 +32,12 @@ const TodoItem = ({ todo }: Props) => {
   return (
     <li>
       <div className={styles.container}>
-        <input type={"checkbox"} checked={todo.completed}
-               onChange={() => updateMutate({ id: todo.id, completed: !todo.completed })} />
-        <Link href={`auth/todo-crud/${todo.id}`}>{todo.title}</Link>
-        <div>
+        <div className={styles.todoBox}>
+          <input type={"checkbox"} checked={todo.completed}
+                 onChange={() => updateMutate({ id: todo.id, completed: !todo.completed })} />
+          <Link href={`/auth/todoCrud/${todo.id}`}>{todo.title}</Link>
+        </div>
+        <div className={styles.iconBox}>
           <PencilIcon className={styles.icon} onClick={() => updateTask({ id: todo.id, title: todo.title })} />
           <TrashIcon className={styles.icon} onClick={() => deleteMutate(todo.id)} />
         </div>

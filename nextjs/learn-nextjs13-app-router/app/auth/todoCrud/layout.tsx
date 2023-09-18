@@ -11,7 +11,6 @@ const Layout = ({ children }: Props) => {
   return (
     <section className={styles.container}>
       <aside className={styles.side}>
-        this boundary is layout
         <Edit />
         <Suspense fallback={<Spinner />}>
           <div>Todo List</div>

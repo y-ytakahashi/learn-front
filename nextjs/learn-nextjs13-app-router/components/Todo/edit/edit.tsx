@@ -38,8 +38,8 @@ const Edit = () => {
 
   return (
     <div className={styles.container}>
-      <p>{loginUser.email}</p>
-      <div>
+      <div className={styles.info}>
+        <p>{loginUser.email}</p>
         <ArrowRightOnRectangleIcon onClick={signOut} className={styles.icon} />
       </div>
       <form onSubmit={submitHandler}>

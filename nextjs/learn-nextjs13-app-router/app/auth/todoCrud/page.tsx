@@ -1,8 +1,13 @@
 import React from "react";
 
-const Page = () => {
+function TodoPage() {
   return (
-    <div>Page</div>
+    <div>
+      <span>
+        Click a title on the left to view a todo.
+      </span>
+    </div>
   );
-};
-export default Page;
+}
+
+export default TodoPage;

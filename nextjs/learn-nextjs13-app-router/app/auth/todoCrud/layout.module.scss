@@ -2,12 +2,19 @@
 
 .container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  gap: var.fz(4);
+  padding: var.fz(8) 0;
   height: calc(100vh - #{var.fz(60)});
 
   .side {
-    flex: 3;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
   }
 }
