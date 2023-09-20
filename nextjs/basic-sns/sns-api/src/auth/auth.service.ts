@@ -36,13 +36,13 @@ export class AuthService {
 
         // ユーザーが存在するかどうか
         if (!user) {
-            return Error("Email Not Found");
+            throw new Error("Email Not Found");
         }
 
         // パスワード認証
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return Error("Invalid Password");
+            throw new Error("Invalid Password");
         }
 
         // jwtを返す
