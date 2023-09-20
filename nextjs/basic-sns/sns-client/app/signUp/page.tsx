@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import apiClient from "@/lib/apiClient";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function SignInPage() {
   const signInFormSchema = z.object({
-    name: z.string().min(1).max(20),
+    username: z.string().min(1).max(20),
     email: z.string().email(),
     password: z
       .string()
@@ -35,7 +35,7 @@ export default function SignInPage() {
     try {
       const res = await apiClient.post("/auth/register", { ...data });
       console.log(res.data);
-      router.push("/login");
+      router.push("/signIn");
     } catch (e) {
       alert("Invalid input");
     }
@@ -45,8 +45,14 @@ export default function SignInPage() {
     <div className={styles.container}>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input className={styles.item} type={"text"} placeholder={"Enter your name"} required {...register("name")} />
-        {errors.name && <p>{errors.name.message}</p>}
+        <input
+          className={styles.item}
+          type={"text"}
+          placeholder={"Enter your name"}
+          required
+          {...register("username")}
+        />
+        {errors.username && <p>{errors.username.message}</p>}
 
         <input
           className={styles.item}
