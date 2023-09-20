@@ -2,9 +2,6 @@
 @use "@/styles/common" as common;
 
 .container {
-  position: relative;
-  top: var.fz(40);
-  height: calc(100vh - #{var.fz(40)});
   width: 100%;
   background-color: antiquewhite;
   padding: var.fz(16);

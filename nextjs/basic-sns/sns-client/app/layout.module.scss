@@ -1,0 +1,6 @@
+@use "@/styles/variables" as var;
+
+.container {
+  position: relative;
+  top: var.fz(40);
+}
