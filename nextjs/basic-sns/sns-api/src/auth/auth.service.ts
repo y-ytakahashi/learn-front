@@ -3,12 +3,15 @@ import {User} from "@prisma/client";
 import * as bcrypt from "bcrypt";
 import {PrismaService} from "@/db/prisma.service";
 import {RegisterUserDto} from "@/dto/auth/registerUser.dto";
-import * as jwt from "jsonwebtoken";
+import {JwtService} from "@nestjs/jwt";
 
 
 @Injectable()
 export class AuthService {
-    constructor(private prisma: PrismaService) {
+    constructor(
+        private prisma: PrismaService,
+        private jwtService: JwtService
+    ) {
     }
 
     getAuth(): string {
@@ -45,8 +48,13 @@ export class AuthService {
             throw new Error("Invalid Password");
         }
 
+        const payload = {sub: user.id, username: user.username, email: user.email};
+
         // jwtを返す
-        return jwt.sign({userId: user.id}, process.env.JWT_SECRET, {expiresIn: "1d"});
+        return {
+            // access_token: jwt.sign({userId: user.id}, process.env.JWT_SECRET, {expiresIn: "1d"})
+            access_token: await this.jwtService.signAsync(payload)
+        };
 
     }
 

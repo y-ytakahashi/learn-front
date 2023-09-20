@@ -3,9 +3,14 @@ import {AuthController} from "@/src/auth/auth.controller";
 import {AuthService} from "@/src/auth/auth.service";
 import {PrismaService} from "@/db/prisma.service";
 import {AuthExceptionFilter} from "@/src/exceptions/authException.filter";
+import {JwtModule} from "@nestjs/jwt";
 
 @Module({
-    imports: [],
+    imports: [JwtModule.register({
+        global: true,
+        secret: process.env.JWT_SECRET,
+        signOptions: {expiresIn: '60s'},
+    })],
     controllers: [AuthController],
     providers: [AuthService, PrismaService, AuthExceptionFilter]
 })
