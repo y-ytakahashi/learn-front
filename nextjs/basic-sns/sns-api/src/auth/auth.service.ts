@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '@/db/prisma.service';
@@ -53,5 +53,17 @@ export class AuthService {
     return {
       access_token: await this.jwtService.signAsync(payload),
     };
+  }
+
+  async find(sub: string) {
+    try {
+      return await this.prisma.user.findUnique({
+        where: {
+          id: sub,
+        },
+      });
+    } catch (e) {
+      throw new InternalServerErrorException(e.message);
+    }
   }
 }

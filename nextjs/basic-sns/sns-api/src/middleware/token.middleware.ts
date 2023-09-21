@@ -6,10 +6,14 @@ import {
 } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { JwtService } from '@nestjs/jwt';
+import { AuthService } from '@/src/auth/auth.service';
 
 @Injectable()
 export class TokenMiddleware implements NestMiddleware {
-  constructor(private jwtService: JwtService) {}
+  constructor(
+    private jwtService: JwtService,
+    private authService: AuthService,
+  ) {}
 
   async use(req: Request, res: Response, next: NextFunction) {
     const token = this.extractTokenFromHeader(req);
@@ -25,6 +29,13 @@ export class TokenMiddleware implements NestMiddleware {
       console.log(e);
       throw new InternalServerErrorException(e.message);
     }
+
+    const tokenUser = req.body.userSub.sub;
+    const user = await this.authService.find(tokenUser);
+    if (!user) {
+      throw new UnauthorizedException('User is valid');
+    }
+
     next();
   }
 
