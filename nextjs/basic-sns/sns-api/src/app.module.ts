@@ -3,9 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from '@/src/auth/auth.module';
 import { CorsMiddleware } from '@/src/middleware/cors.middleware';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
-  imports: [AuthModule],
+  imports: [AuthModule, PostsModule],
   controllers: [AppController],
   providers: [AppService],
 })

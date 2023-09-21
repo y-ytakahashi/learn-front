@@ -6,8 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import apiClient from "@/lib/apiClient";
 import { useRouter } from "next/navigation";
 
-export default function SignInPage() {
-  const signInFormSchema = z.object({
+export default function SignUpPage() {
+  const signUpFormSchema = z.object({
     username: z.string().min(1).max(20),
     email: z.string().email(),
     password: z
@@ -19,14 +19,14 @@ export default function SignInPage() {
       })
   });
 
-  type signInFormSchemaType = z.infer<typeof signInFormSchema>;
+  type signInFormSchemaType = z.infer<typeof signUpFormSchema>;
 
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<signInFormSchemaType>({
-    resolver: zodResolver(signInFormSchema)
+    resolver: zodResolver(signUpFormSchema)
   });
 
   const router = useRouter();
