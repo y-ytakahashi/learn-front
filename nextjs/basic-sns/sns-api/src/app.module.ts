@@ -14,6 +14,6 @@ import { TokenMiddleware } from '@/src/middleware/token.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(CorsMiddleware).forRoutes('*');
-    consumer.apply(TokenMiddleware).forRoutes('/hello');
+    consumer.apply(TokenMiddleware).forRoutes('/hello', '/post/store');
   }
 }

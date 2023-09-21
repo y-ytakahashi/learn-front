@@ -13,6 +13,15 @@ export class PostsService {
           authorId: 'b39941f1-0e00-493e-ab91-733afe41b8df',
           content: storePostDtp.content,
         },
+        include: {
+          author: {
+            select: {
+              id: true,
+              email: true,
+              username: true,
+            },
+          },
+        },
       });
     } catch (e) {
       throw new Error(e.message);
@@ -24,6 +33,9 @@ export class PostsService {
       return await this.prisma.post.findMany({
         take: 10,
         orderBy: { createdAt: 'desc' },
+        include: {
+          author: true,
+        },
       });
     } catch (e) {
       throw new Error(e.message);

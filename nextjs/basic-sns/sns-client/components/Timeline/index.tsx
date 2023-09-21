@@ -5,7 +5,8 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import apiClient from "@/lib/apiClient";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { IPost } from "@/components/Timeline/types";
 
 const Timeline = () => {
   const post = z.object({
@@ -26,7 +27,8 @@ const Timeline = () => {
 
   const onSubmit = async (data: postSchemaType) => {
     try {
-      await apiClient.post("/posts/store", { ...data });
+      const newPost = await apiClient.post("/posts/store", { ...data });
+      setLatestPost((prevPosts) => [newPost.data, ...prevPosts]);
     } catch (e) {
       alert("Invalid input");
       console.log(e);
@@ -39,6 +41,20 @@ const Timeline = () => {
       reset();
     }
   }, [formState, isSubmitSuccessful]);
+
+  const [latestPost, setLatestPost] = useState<IPost[]>([]);
+
+  useEffect(() => {
+    const fetchLatestPost = async () => {
+      try {
+        const res = await apiClient.get("/posts/latest-posts");
+        setLatestPost(res.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchLatestPost();
+  }, []);
 
   return (
     <>
@@ -54,12 +70,9 @@ const Timeline = () => {
         </form>
       </div>
       <div className={styles.postContainer}>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {latestPost.map((post: IPost) => (
+          <Post key={post.id} {...post} />
+        ))}
       </div>
     </>
   );
