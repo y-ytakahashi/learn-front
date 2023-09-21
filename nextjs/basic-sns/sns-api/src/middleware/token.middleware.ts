@@ -7,8 +7,6 @@ import {
 import { Request, Response, NextFunction } from 'express';
 import { JwtService } from '@nestjs/jwt';
 
-import process from 'process';
-
 @Injectable()
 export class TokenMiddleware implements NestMiddleware {
   constructor(private jwtService: JwtService) {}
@@ -18,18 +16,13 @@ export class TokenMiddleware implements NestMiddleware {
     if (!token) {
       throw new UnauthorizedException('Token is valid');
     }
-    console.log('Middleware is called', token);
 
     try {
-      console.log('start verify token');
-      const payload = await this.jwtService.verifyAsync(token, {
+      req.body.userSub = await this.jwtService.verifyAsync(token, {
         secret: process.env.JWT_SECRET,
       });
-      console.log('middleware', { payload });
-      // 💡 We're assigning the payload to the request object here
-      // so that we can access it in our route handlers
-      req['user'] = payload;
     } catch (e) {
+      console.log(e);
       throw new InternalServerErrorException(e.message);
     }
     next();

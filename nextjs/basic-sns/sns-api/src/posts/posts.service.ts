@@ -7,10 +7,11 @@ export class PostsService {
   constructor(private prisma: PrismaService) {}
 
   async store(storePostDtp: StorePostDto) {
+    console.log({ storePostDtp });
     try {
       return await this.prisma.post.create({
         data: {
-          authorId: 'b39941f1-0e00-493e-ab91-733afe41b8df',
+          authorId: storePostDtp.userSub.sub,
           content: storePostDtp.content,
         },
         include: {
