@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import apiClient from "@/lib/apiClient";
 import { useRouter } from "next/navigation";
+import useAuthStore from "@/store/useAuthStore";
 
 export default function SignUpPage() {
   const signUpFormSchema = z.object({
@@ -30,12 +31,14 @@ export default function SignUpPage() {
   });
 
   const router = useRouter();
+  const { signIn } = useAuthStore();
 
   const onSubmit = async (data: signInFormSchemaType) => {
     try {
       const res = await apiClient.post("/auth/register", { ...data });
+      console.log("signUp");
       console.log(res.data);
-      router.push("/signIn");
+      router.push("/");
     } catch (e) {
       alert("Invalid input");
     }

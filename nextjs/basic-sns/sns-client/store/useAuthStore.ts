@@ -1,8 +1,9 @@
 import { create } from "zustand";
+import apiClient from "@/lib/apiClient";
 
 type AuthUser = {
-  name?: string | undefined;
-  email?: string | undefined;
+  sub: string | undefined;
+  username: string | undefined;
   token: string | undefined;
 };
 type State = {
@@ -11,7 +12,7 @@ type State = {
   signOut: () => void;
 };
 const useAuthStore = create<State>((set) => ({
-  authUser: { name: "", email: "", token: "" },
+  authUser: { sub: "", username: "", token: "" },
   signIn: async (payload) => {
     set({
       authUser: payload
@@ -19,8 +20,9 @@ const useAuthStore = create<State>((set) => ({
     localStorage.setItem("token", payload.token ?? "");
   },
   signOut: () => {
-    set({ authUser: { name: "", email: "", token: "" } });
+    set({ authUser: { sub: "", username: "", token: "" } });
     localStorage.removeItem("token");
+    delete apiClient.defaults.headers["Authorization"];
   }
 }));
 export default useAuthStore;

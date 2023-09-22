@@ -25,6 +25,12 @@ export class AuthService {
         username,
         password: hashedPassword,
         email,
+        Profile: {
+          create: {
+            bio: 'はじめまして',
+            profileImgUrl: 'sample.png',
+          },
+        },
       },
     });
   }
@@ -51,6 +57,8 @@ export class AuthService {
 
     // jwtを返す
     return {
+      sub: user.id,
+      username: user.username,
       access_token: await this.jwtService.signAsync(payload),
     };
   }

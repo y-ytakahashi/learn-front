@@ -32,8 +32,10 @@ export default function SignInPage() {
   const onSubmit = async (data: signUpFormSchemaType) => {
     try {
       const res = await apiClient.post("/auth/login", { ...data });
-      const { access_token } = res.data;
-      signIn({ token: access_token });
+      console.log({ res });
+
+      const { access_token, sub, username } = res.data;
+      signIn({ sub, username, token: access_token });
       router.push("/");
     } catch (e) {
       alert("Invalid input");
