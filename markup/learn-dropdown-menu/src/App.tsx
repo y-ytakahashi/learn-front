@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.scss'
+import styles from "./app.module.scss";
+import { useCallback, useState } from "react";
+import clsx from "clsx";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [toggle, setToggle] = useState(false);
+
+  // Function to toggle navbar
+  const toggleNavbar = useCallback(() => setToggle((prev) => !prev), []);
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.container}>
+      <nav className={styles.navbar}>
+        <ul className={styles.navLinks}>
+          <li className={styles.navLink}>
+            <a href="#">Home</a>
+          </li>
+          <li className={`${styles.navLink} ${styles.service}`}>
+            <a href="#">Service</a>
+            <ul className={styles.dropDown}>
+              <li>Service 1</li>
+              <li>Service 2</li>
+              <li>Service 3</li>
+            </ul>
+          </li>
+          <li className={styles.navLink}>
+            <a href="#">Service</a>
+          </li>
+          <li className={styles.navLink}>
+            <a href="#" onClick={toggleNavbar}>Contanct</a>
+          </li>
+        </ul>
+      </nav>
+      <div className={clsx(styles.content, toggle && styles.show)}>
+        <div>
+          <h1>menu</h1>
+        </div>
+        <div onClick={toggleNavbar}>x</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
