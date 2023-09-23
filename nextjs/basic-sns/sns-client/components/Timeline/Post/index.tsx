@@ -4,10 +4,16 @@ import { IPost } from "@/components/Timeline/types";
 import { format } from "date-fns";
 
 const Post = ({ content, author, createdAt }: IPost) => {
+  console.log({ author });
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <Image src={"https://via.placeholder.com/150"} alt={"place holder"} height={150} width={150} />
+        <Image
+          src={`http://localhost:8000/statics/${author.profile?.profileImgUrl}` ?? ""}
+          alt={"place holder"}
+          height={150}
+          width={150}
+        />
         <div className={styles.postInfo}>
           <h2>{author?.username ?? "no name"}</h2>
           <p>{format(new Date(createdAt), "yyyy-MM-dd hh:mm:ss")}</p>

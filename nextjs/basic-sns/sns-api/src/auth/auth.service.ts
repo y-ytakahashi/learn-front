@@ -4,6 +4,7 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from '@/db/prisma.service';
 import { RegisterUserDto } from '@/dto/auth/registerUser.dto';
 import { JwtService } from '@nestjs/jwt';
+import { generateUserIcon } from '@/src/util/jenerateUserIcon';
 
 @Injectable()
 export class AuthService {
@@ -20,6 +21,8 @@ export class AuthService {
     const { username, password, email } = registerUserDto;
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const defaultIcon = generateUserIcon(email);
+
     return this.prisma.user.create({
       data: {
         username,
@@ -28,9 +31,12 @@ export class AuthService {
         Profile: {
           create: {
             bio: 'はじめまして',
-            profileImgUrl: 'sample.png',
+            profileImgUrl: defaultIcon,
           },
         },
+      },
+      include: {
+        Profile: true,
       },
     });
   }

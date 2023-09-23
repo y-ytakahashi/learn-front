@@ -48,6 +48,7 @@ const Timeline = () => {
     const fetchLatestPost = async () => {
       try {
         const res = await apiClient.get("/posts/latest-posts");
+        console.log("getLatestPost", res);
         setLatestPost(res.data);
       } catch (e) {
         console.log(e);

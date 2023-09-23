@@ -35,7 +35,11 @@ export class PostsService {
         take: 10,
         orderBy: { createdAt: 'desc' },
         include: {
-          author: true,
+          author: {
+            include: {
+              Profile: true,
+            },
+          },
         },
       });
     } catch (e) {

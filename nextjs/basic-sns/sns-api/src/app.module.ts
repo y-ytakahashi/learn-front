@@ -7,9 +7,18 @@ import { PostsModule } from './posts/posts.module';
 import { TokenMiddleware } from '@/src/middleware/token.middleware';
 import { AuthService } from '@/src/auth/auth.service';
 import { PrismaService } from '@/db/prisma.service';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join, resolve } from 'path';
 
 @Module({
-  imports: [AuthModule, PostsModule],
+  imports: [
+    AuthModule,
+    PostsModule,
+    ServeStaticModule.forRoot({
+      rootPath: resolve(__dirname, '../statics'),
+      serveRoot: '/statics',
+    }),
+  ],
   controllers: [AppController],
   providers: [AuthService, AppService, PrismaService],
 })
