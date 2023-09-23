@@ -2,11 +2,11 @@
 .container {
   position: relative;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   background: antiquewhite;
-  //overflow: hidden;
+  overflow-x: hidden;
 
   .navbar {
     height: 100%;
@@ -52,12 +52,14 @@
 
       }
 
+      .navActive {
+        background-color: gray;
+      }
+
 
       .dropDown {
         align-items: center;
-        //top: .5rem;
-        //left: 4rem;
-        transform: translate(4.5rem,-1rem);
+        transform: translate(4.5rem, -1rem);
         width: 7rem;
         position: absolute;
         margin: -.2rem -.5rem;
@@ -92,15 +94,20 @@
   .mainContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .secContainer {
-      position: relative;
       height: 100vh;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: rgba(183, 93, 20, 0.51);
+
+      .bodyContainer {
+
+      }
     }
 
     .content {
