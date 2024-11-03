@@ -1,9 +1,0 @@
-@use "./variables" as var;
-
-@mixin section {
-  margin: var.fz(16) var.fz(4);
-}
-
-@mixin shadow {
-  box-shadow: 1px 1px 2px 2px #bb7943;
-}

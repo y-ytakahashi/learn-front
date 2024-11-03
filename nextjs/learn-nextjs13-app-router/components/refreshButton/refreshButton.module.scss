@@ -1,6 +1,0 @@
-@use "@/styles/variables" as var;
-@use "@/styles/common" as common;
-
-.refreshBtn {
-  @include common.btn;
-}

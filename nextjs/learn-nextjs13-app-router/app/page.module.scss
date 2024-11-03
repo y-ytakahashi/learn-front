@@ -1,9 +1,0 @@
-@use "@/styles/variables" as var;
-
-.container {
-  padding: 0 var.fz(16);
-  display: grid;
-  justify-content: center;
-  gap: var.fz(16);
-
-}
