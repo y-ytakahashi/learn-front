@@ -8,3 +8,13 @@ export type siteConfig = {
     github: string;
   };
 };
+
+export type NavItem = {
+  title: string;
+  href: string;
+  disable?: boolean;
+};
+
+export type MarketingCongig = {
+  navitems: NavItem[];
+};
