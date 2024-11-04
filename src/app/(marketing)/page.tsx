@@ -19,10 +19,7 @@ export default function IndexPage() {
           <p>このアプリケーションはnextjsで作成されています</p>
 
           <div>
-            <Link
-              href="{/login}"
-              className={cn(buttonVariants({ size: "lg" }))}
-            >
+            <Link href={"#"} className={cn(buttonVariants({ size: "lg" }))}>
               始める
             </Link>
             <Link
