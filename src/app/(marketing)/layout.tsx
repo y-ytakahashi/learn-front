@@ -3,6 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { marketingConfig } from "../../../config/marketing";
+import SiteFooter from "@/components/SiteFooter";
 
 const Marketinglayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -23,6 +24,7 @@ const Marketinglayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </header>
       <main>{children}</main>
+      <SiteFooter />
     </div>
   );
 };
