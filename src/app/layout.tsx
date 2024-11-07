@@ -15,10 +15,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: { template: "Shadcn - %s", default: siteConfifg.name },
+  // title: { template: "Shadcn - %s", default: siteConfifg.name },
   description: "ブログ投稿ができるwebアプリケーションです",
   keywords: ["post", "writer", "blog", "shadcn"],
   authors: [{ name: "y-y", url: siteConfifg.url }],
+  metadataBase: new URL(siteConfifg.url),
   openGraph: {
     type: "website",
     locale: "ja_JP",
