@@ -2,7 +2,7 @@ import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
 async function getPostFormSlug(slug: string) {
-  const post = await allPosts.find((post) => post.url === slug);
+  const post = allPosts.find((post) => post.url === slug);
   const url = post?.url;
   console.log(url);
 

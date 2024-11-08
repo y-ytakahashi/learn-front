@@ -1,7 +1,10 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { buttonVariants } from "./ui/button";
+import { Github } from "./icon";
+import { signIn } from "next-auth/react";
 
 export default function UserAuthForm() {
   return (
@@ -18,14 +21,20 @@ export default function UserAuthForm() {
         </div>
       </form>
       <div className="relative">
-        <div className="absolute inset-0 items-center">
+        <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs">
           <span className="text-muted-foreground px-2 bg-background"></span>
         </div>
       </div>
-      <button className={cn(buttonVariants({ variant: "outline" }))}>
+      <button
+        onClick={async () => {
+          await signIn("github");
+        }}
+        className={cn(buttonVariants({ variant: "outline" }))}
+      >
+        <Github size="80" />
         Github
       </button>
     </div>
