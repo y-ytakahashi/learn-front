@@ -1,4 +1,6 @@
 import { allPosts } from "contentlayer/generated";
+import { format } from "date-fns";
+import Link from "next/link";
 
 export default function BlogPage() {
   return (
@@ -12,12 +14,19 @@ export default function BlogPage() {
         </div>
       </div>
       <hr className="my-8" />
-      {allPosts.map((post) => (
-        <article key={post._id}>
-          <h2 className="text-2xl font-extrabold">{post.title}</h2>
-          <p>{post.body.raw}</p>
-        </article>
-      ))}
+      <div className="grid gap-10">
+        {allPosts.map((post) => (
+          <article key={post._id} className="relative flex flex-col space-y-2">
+            <h2 className="text-2xl font-extrabold">{post.title}</h2>
+            <p className="text-sm text-muted-foreground">
+              {format(post.date, "yyyy-MM-dd")}
+            </p>
+            <Link href={post.url} className="absolute inset-0 py-12">
+              もっとみる
+            </Link>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
