@@ -13,7 +13,7 @@ export default function MainNab({ items }: Props) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <div className="flex">
+    <div className="flex py-4 gap-4">
       <Link href={"/"} className="hidden md:flex items-center space-x-2">
         <span className="font-bold hidden sm:inline-block">Post Writer</span>
       </Link>

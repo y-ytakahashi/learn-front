@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { buttonVariants } from "./ui/button";
-import Spinner2, { Github } from "./icon";
+import Icons from "./icon";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
@@ -38,9 +38,9 @@ export default function UserAuthForm() {
         className={cn(buttonVariants({ variant: "outline" }))}
       >
         {isGithubLoading ? (
-          <Spinner2 size="40" className="animate-spin" />
+          <Icons.spinner2 size="40" className="animate-spin" />
         ) : (
-          <Github size="40" />
+          <Icons.github size="40" />
         )}
         Github
       </button>

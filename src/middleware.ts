@@ -34,6 +34,7 @@ export async function middleware(request: NextRequest) {
 }
 
 // See "Matching Paths" below to learn more middlewareを有効にしたいページを指定
+// セッションのDB管理とするとここで指定されているURLに接続される場合にDBに接続されるので、session認証が良さそう
 export const config = {
   matcher: ["/dashboard/:path", "/editor/:path", "/login", "/register"],
 };

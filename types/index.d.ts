@@ -1,4 +1,6 @@
-export type siteConfig = {
+import Icons from "@/components/icon";
+
+export type SiteConfig = {
   name: string;
   description: string;
   url: string;
@@ -17,4 +19,25 @@ export type NavItem = {
 
 export type MarketingCongig = {
   navitems: NavItem[];
+};
+
+export type SidebarNavItem = {
+  title: string;
+  disable?: boolean;
+  external?: boolean;
+  icon?: keyof typeof Icons;
+} & (
+  | {
+      href: string;
+      items?: never;
+    }
+  | {
+      href?: string;
+      items: NavItem[];
+    }
+);
+
+export type DashboradConfig = {
+  navitems: NavItem[];
+  sidebarNav: SideBarNavItem[];
 };

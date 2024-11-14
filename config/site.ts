@@ -1,6 +1,6 @@
-import { siteConfig } from "../types";
+import { SiteConfig } from "../types";
 
-export const siteConfifg: siteConfig = {
+export const siteConfifg: SiteConfig = {
   name: "Post Writer",
   description: "このアプリケーションはnextjsで作成されています",
   url: "https://post-writer.vercel.app",
