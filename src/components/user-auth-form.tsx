@@ -3,10 +3,12 @@ import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { buttonVariants } from "./ui/button";
-import { Github } from "./icon";
+import Spinner2, { Github } from "./icon";
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 
 export default function UserAuthForm() {
+  const [isGithubLoading, setIsGithubLoading] = useState(false);
   return (
     <div className="grid gap-6">
       <form>
@@ -30,11 +32,16 @@ export default function UserAuthForm() {
       </div>
       <button
         onClick={async () => {
+          setIsGithubLoading(true);
           await signIn("github");
         }}
         className={cn(buttonVariants({ variant: "outline" }))}
       >
-        <Github size="80" />
+        {isGithubLoading ? (
+          <Spinner2 size="40" className="animate-spin" />
+        ) : (
+          <Github size="40" />
+        )}
         Github
       </button>
     </div>

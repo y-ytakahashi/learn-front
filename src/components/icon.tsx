@@ -12,7 +12,7 @@ const Github = ({ size }: GithubProps) => (
     <g
       id="feGithub0"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       stroke="none"
       stroke-width="1"
     >
@@ -28,7 +28,7 @@ const Github = ({ size }: GithubProps) => (
 
 type Spinner2Props = {
   size: string;
-  className: string;
+  className?: string;
 };
 
 const Spinner2 = ({ size, className }: Spinner2Props) => (

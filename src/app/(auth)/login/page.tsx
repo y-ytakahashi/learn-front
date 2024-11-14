@@ -1,7 +1,7 @@
 import UserAuthForm from "@/components/user-auth-form";
 import Link from "next/link";
 
-export default function Logni() {
+export default function LognIn() {
   return (
     <div className="container flex flex-col justify-center h-screen items-center w-screen">
       <div className="items-center">
