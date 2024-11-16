@@ -1,18 +1,15 @@
-type GithubProps = {
-  size?: string;
-};
-type Spinner2Props = {
-  size?: string;
+type IconProps = {
   className?: string;
 };
 
 const icons = {
-  github: ({ size = "40" }: GithubProps) => (
+  github: ({ className }: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
+      width="22"
+      height="22"
       viewBox="0 0 24 24"
+      {...{ className }}
     >
       <g
         id="feGithub0"
@@ -30,11 +27,11 @@ const icons = {
       </g>
     </svg>
   ),
-  spinner2: ({ size, className }: Spinner2Props) => (
+  spinner2: ({ className }: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
+      width="22"
+      height="22"
       viewBox="0 0 16 16"
       {...{ className }}
     >
@@ -44,12 +41,13 @@ const icons = {
       />
     </svg>
   ),
-  post: () => (
+  post: ({ className }: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="200"
-      height="200"
+      width="22"
+      height="22"
       viewBox="0 0 24 24"
+      {...{ className }}
     >
       <g fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M2.906 17.505L5.337 3.718a2 2 0 0 1 2.317-1.623L19.472 4.18a2 2 0 0 1 1.622 2.317l-2.431 13.787a2 2 0 0 1-2.317 1.623L4.528 19.822a2 2 0 0 1-1.622-2.317Z" />
@@ -57,6 +55,69 @@ const icons = {
           stroke-linecap="round"
           d="m8.929 6.382l7.879 1.389m-8.574 2.55l7.879 1.39M7.54 14.26l4.924.869"
         />
+      </g>
+    </svg>
+  ),
+  billing: ({ className }: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 14 14"
+      {...{ className }}
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M7 4.5V3M5.5 8.5c0 .75.67 1 1.5 1s1.5 0 1.5-1c0-1.5-3-1.5-3-3c0-1 .67-1 1.5-1s1.5.38 1.5 1M7 9.5V11" />
+        <circle cx="7" cy="7" r="6.5" />
+      </g>
+    </svg>
+  ),
+  setting: ({ className }: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      {...{ className }}
+    >
+      <g fill="currentColor">
+        <path d="M12 4a1 1 0 0 0-1 1c0 1.692-2.046 2.54-3.243 1.343a1 1 0 1 0-1.414 1.414C7.54 8.954 6.693 11 5 11a1 1 0 1 0 0 2c1.692 0 2.54 2.046 1.343 3.243a1 1 0 0 0 1.414 1.414C8.954 16.46 11 17.307 11 19a1 1 0 1 0 2 0c0-1.692 2.046-2.54 3.243-1.343a1 1 0 1 0 1.414-1.414C16.46 15.046 17.307 13 19 13a1 1 0 1 0 0-2c-1.692 0-2.54-2.046-1.343-3.243a1 1 0 0 0-1.414-1.414C15.046 7.54 13 6.693 13 5a1 1 0 0 0-1-1zm-2.992.777a3 3 0 0 1 5.984 0a3 3 0 0 1 4.23 4.231a3 3 0 0 1 .001 5.984a3 3 0 0 1-4.231 4.23a3 3 0 0 1-5.984 0a3 3 0 0 1-4.231-4.23a3 3 0 0 1 0-5.984a3 3 0 0 1 4.231-4.231z" />
+        <path d="M12 10a2 2 0 1 0 0 4a2 2 0 0 0 0-4zm-2.828-.828a4 4 0 1 1 5.656 5.656a4 4 0 0 1-5.656-5.656z" />
+      </g>
+    </svg>
+  ),
+  add: ({ className }: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="200"
+      height="200"
+      viewBox="0 0 24 24"
+      {...{ className }}
+    >
+      <path fill="currentColor" d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2Z" />
+    </svg>
+  ),
+  dropdown: ({ className }: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="200"
+      height="200"
+      viewBox="0 0 48 48"
+      {...{ className }}
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="4"
+      >
+        <path stroke-linejoin="round" d="M40 28L24 40L8 28" />
+        <path d="M8 10h32M8 18h32" />
       </g>
     </svg>
   ),

@@ -11,14 +11,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   callbacks: {
     async session({ token, session }) {
-      if (token) {
-        session.user.id = token.id;
+      if (session.user) {
+        session.user.id = token.sub as string;
         session.user.name = token.name;
-        session.user.email = token.email ?? "";
+        session.user.email = token.email as string;
         session.user.image = token.picture;
       }
       return session;
     },
+
     async authorized() {
       return true;
     },

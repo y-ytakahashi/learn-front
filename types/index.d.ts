@@ -3,7 +3,7 @@ import Icons from "@/components/icon";
 export type SiteConfig = {
   name: string;
   description: string;
-  url: string;
+  url: tring;
   ogImage: string;
   links: {
     x: string;

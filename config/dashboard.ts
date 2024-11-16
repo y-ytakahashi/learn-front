@@ -14,17 +14,17 @@ export const dashbordConfig: DashboradConfig = {
   sidebarNav: [
     {
       title: "記事投稿",
-      hfref: "/dashbord",
+      href: "/dashboard",
       icon: "post",
     },
     {
       title: "お支払い",
-      hfref: "/dashbord/billing",
+      href: "/dashboard/billing",
       icon: "billing",
     },
     {
       title: "設定",
-      hfref: "/dashbord/settings",
+      href: "/dashboard/settings",
       icon: "setting",
     },
   ],

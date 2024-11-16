@@ -38,9 +38,9 @@ export default function UserAuthForm() {
         className={cn(buttonVariants({ variant: "outline" }))}
       >
         {isGithubLoading ? (
-          <Icons.spinner2 size="40" className="animate-spin" />
+          <Icons.spinner2 className="animate-spin" />
         ) : (
-          <Icons.github size="40" />
+          <Icons.github />
         )}
         Github
       </button>
