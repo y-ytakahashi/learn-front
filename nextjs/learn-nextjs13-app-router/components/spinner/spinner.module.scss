@@ -1,0 +1,23 @@
+@use "@/styles/variables" as var;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner {
+    margin: var.fz(8);
+    border: solid var.fz(4) #315d8d;
+    border-top: solid var.fz(4) #2e93e6;
+    width: var.fz(32);
+    height: var.fz(32);
+    border-radius: 50%;
+    animation: sp-anime 1.0s infinite Linear;
+  }
+}
+
+@keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
+}

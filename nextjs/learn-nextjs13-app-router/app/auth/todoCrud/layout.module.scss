@@ -1,0 +1,20 @@
+@use "@/styles/variables" as var;
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: var.fz(4);
+  padding: var.fz(8) 0;
+  height: calc(100vh - #{var.fz(60)});
+
+  .side {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+  }
+}

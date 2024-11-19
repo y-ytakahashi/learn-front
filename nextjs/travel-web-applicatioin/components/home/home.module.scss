@@ -1,0 +1,95 @@
+@use "styles/variables" as var;
+@use "styles/common" as common;
+
+.home {
+  @include common.section;
+  position: relative;
+  height: 95vh;
+  top: 0;
+  width: 100%;
+
+  .videoBg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  .sectionText {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 30%;
+    bottom: 50%;
+    color: var.$whiteColor;
+
+    .icon {
+      color: var.$primaryColor;
+    }
+
+    h1 {
+      font-size: var.$h1FontSize;
+      font-weight: 900;
+    }
+
+    p {
+      padding: 1rem 0;
+      font-size: var.$normalFontSize;
+      font-weight: 500;
+    }
+
+    button {
+      @include common.btn;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: 0 2rem;
+      height: 40px;
+      font-size: var.$h3FontSize;
+    }
+
+  }
+
+}
+
+@include var.mq("md") {
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sectionText {
+      position: absolute;
+      top: 20rem;
+      display: flex;
+      flex-direction: column;
+      height: 20rem;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        font-size: var.$h1FontSize;
+        font-weight: 900;
+        max-width: 70%;
+        margin: auto;
+      }
+
+      p {
+        padding: 1rem
+      }
+
+      button {
+        width: 20rem;
+      }
+    }
+  }
+}
+

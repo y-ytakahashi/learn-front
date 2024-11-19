@@ -1,0 +1,43 @@
+@use "styles/variables" as var;
+@use "styles/common" as common;
+
+.subscribe {
+  @include common.section;
+
+  .container {
+    .textDiv {
+
+      .btn {
+        @include common.btn;
+        padding: .5rem 2rem;
+      }
+
+      h4 {
+        font-size: var.$h2FontSize;
+        color: var.$blackColor;
+      }
+
+      p {
+        padding: 1rem 0;
+      }
+
+    }
+
+    .hero {
+      height: auto;
+      width: 300px;
+      margin: 0 auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+
+
+  }
+
+
+}

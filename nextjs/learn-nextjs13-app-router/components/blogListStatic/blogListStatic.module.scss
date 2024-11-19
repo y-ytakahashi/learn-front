@@ -1,0 +1,12 @@
+@use "styles/variables" as var;
+@use "styles/common" as common;
+
+.container {
+  padding: var.fz(4);
+
+  h1 {
+    font-size: var.fz(20);
+    font-weight: 700;
+  }
+
+}

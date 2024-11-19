@@ -1,0 +1,11 @@
+@use "@/styles/variables" as var;
+@use "@/styles/common" as common;
+
+
+.container {
+  padding: var.fz(16);
+  .textArea {
+    border: var.fz(2) solid rgb(49, 91, 136, 0.5);
+    padding: var.fz(8);
+  }
+}

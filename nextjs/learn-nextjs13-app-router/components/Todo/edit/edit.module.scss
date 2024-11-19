@@ -1,0 +1,37 @@
+@use "@/styles/variables" as var;
+@use "@/styles/common" as common;
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+
+  .info {
+    width: 100%;
+    display: flex;
+    gap: var.fz(4);
+
+    .icon {
+      width: var.fz(20);
+      color: #315d8d;
+    }
+
+  }
+
+  form {
+    display: flex;
+    gap: var.fz(4);
+
+    input {
+      border: 1px solid #315d8d;
+      outline: none;
+      border-radius: var.fz(2);
+      height: var.fz(32);
+      color: gray;
+
+    }
+  }
+
+}

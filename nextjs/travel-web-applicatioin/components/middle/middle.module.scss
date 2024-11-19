@@ -1,0 +1,53 @@
+@use "styles/variables" as var;
+@use "styles/common" as common;
+
+.middle {
+  @include common.section;
+  width: 100%;
+
+  .grid {
+    display: grid;
+    gap: 2rem;
+    padding: 3rem;
+    border-radius: var.$borderRadius;
+    background: var.$primaryColorLight;
+    justify-content: center;
+    margin: 2rem;
+
+    .item {
+      display: flex;
+      align-items: center;
+    }
+
+    span {
+      justify-content: center;
+      gap: .5rem;
+
+      h1 {
+        font-size: var.$h1FontSize;
+        font-weight: 700;
+        color: var.$blackColor;
+      }
+
+      p {
+        opacity: .8;
+        max-width: 80px;
+      }
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 768px), print {
+  .middle {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      flex-direction: column;
+      gap: 1.2rem;
+
+    }
+  }
+
+}

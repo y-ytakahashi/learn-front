@@ -1,0 +1,8 @@
+@use "@/styles/variables" as var;
+@use "@/styles/common" as common;
+
+.container {
+  @include common.container;
+  flex-direction: column;
+
+}

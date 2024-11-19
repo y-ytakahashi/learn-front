@@ -1,0 +1,31 @@
+@use "./variables" as var;
+
+
+@mixin icon {
+  font-size: var.$h2FontSize;
+  margin-left: 0.5rem;
+  &:hover {
+    color: var.$primaryColor;
+  }
+}
+
+@mixin btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var.$borderRadius;
+  padding: 0.8rem 1rem;
+  color: var.$whiteColor;
+  background: var.$primaryColor;
+  margin-left: 0.5rem;
+
+  &:hover {
+    transition: .3s ease;
+    color: var.$primaryColor;
+    background: var.$primaryColorLight;
+  }
+}
+
+@mixin section {
+  padding: 2rem 0 2rem;
+}

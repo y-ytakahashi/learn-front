@@ -1,0 +1,26 @@
+@use "@/styles/variables" as var;
+
+.container {
+  display: flex;
+  gap: var.fz(4);
+  justify-content: space-between;
+
+  .todoBox {
+    display: flex;
+    gap: var.fz(4);
+
+    a {
+      text-decoration: none;
+      color: #425a7c;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .icon {
+    width: var.fz(20);
+  }
+
+}
