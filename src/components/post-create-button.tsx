@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { ButtonProps, buttonVariants } from "./ui/button";
 import icons from "./icon";
 import { useRouter } from "next/navigation";
+import { Toast } from "./ui/toast";
+import { useToast } from "@/hooks/use-toast";
 
 interface PostCreateButtonProps extends ButtonProps {}
 
@@ -14,6 +16,7 @@ export default function PostCreateButton({
 }: PostCreateButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { toast } = useToast();
 
   const onClick = async () => {
     setIsLoading(true);
@@ -30,6 +33,11 @@ export default function PostCreateButton({
     setIsLoading(false);
 
     if (!res.ok) {
+      return toast({
+        title: "問題が発生しました",
+        description: "投稿が作成されませんでした。もう1度お試しください",
+        variant: "destructive",
+      });
     }
 
     const post = await res.json();

@@ -11,7 +11,6 @@ const PostCreateSchema = z.object({
 export async function POST(req: NextRequest) {
   try {
     const session = await auth();
-    console.log(session);
 
     if (!session) {
       return NextResponse.json("Unauthrized", { status: 403 });

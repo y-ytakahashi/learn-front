@@ -14,7 +14,7 @@ export default function PostItem({ post }: PostItemProps) {
       <div className="grid gap-1">
         <Link
           className="font-semibold hover:underline"
-          href={`/post/${post.id}`}
+          href={`/editor/${post.id}`}
         >
           {post.title}
         </Link>

@@ -35,11 +35,15 @@ export default async function DashBoradPage() {
         <PostCreateButton />
       </DashBoardHeader>
       <div>
-        <div className="divide-y rounded-md border">
-          {posts.map((post) => (
-            <PostItem key={post.id} post={post} />
-          ))}
-        </div>
+        {posts.length > 0 ? (
+          <div className="divide-y rounded-md border">
+            {posts.map((post) => (
+              <PostItem key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          "投稿が存在しません"
+        )}
       </div>
     </DashBoardShell>
   );
