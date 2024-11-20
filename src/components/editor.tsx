@@ -7,10 +7,23 @@ import TextAreaAutoSize from "react-textarea-autosize";
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import EditorLink from "@editorjs/link";
+import { Post } from "@prisma/client";
+import { Pick } from "@prisma/client/runtime/library";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { postPatchSchema, postPatchSchemaType } from "@/lib/post";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
-export default function Editor() {
+interface EditorProps {
+  post: Pick<Post, "id" | "title" | "content" | "publish">;
+}
+
+export default function Editor({ post }: EditorProps) {
   const [isMounted, setIsmounted] = useState(false);
   const ref = useRef<EditorJS>();
+  const { toast } = useToast();
+  const router = useRouter();
 
   const initializeEditor = useCallback(async () => {
     const editor = new EditorJS({
@@ -20,6 +33,7 @@ export default function Editor() {
       onReady() {
         ref.current = editor;
       },
+      data: post.content as any,
       tools: {
         header: Header,
         link: EditorLink,
@@ -43,8 +57,45 @@ export default function Editor() {
     };
   }, [isMounted, initializeEditor]);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<postPatchSchemaType>({
+    resolver: zodResolver(postPatchSchema),
+  });
+
+  const onSubmit = async (data: postPatchSchemaType) => {
+    const blocks = await ref.current?.save();
+    const response = await fetch(`/api/posts/${post.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: data.title,
+        content: blocks,
+      }),
+    });
+
+    if (!response.ok) {
+      return toast({
+        title: "問題が発生しました",
+        description: "あなたの記事は保存されませんでした",
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "更新が成功しました",
+        description: "正常に更新されました",
+      });
+
+      router.refresh();
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-10">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center spacex-10">
@@ -62,10 +113,12 @@ export default function Editor() {
         </div>
         <div className="w-[800px] mx-auto">
           <TextAreaAutoSize
+            defaultValue={post.title}
             id="title"
             autoFocus
             placeholder="Post title "
             className="w-full resize-none overflow-hidden bg-transparent text-5xl focus:outline-none font-bold"
+            {...register("title")}
           ></TextAreaAutoSize>
         </div>
       </div>

@@ -19,7 +19,7 @@
         "type": "Post",
         "url": "/blog/post-1"
       },
-      "documentHash": "1730984373440",
+      "documentHash": "1732081956530",
       "hasWarnings": true,
       "documentTypeName": "Post"
     },
@@ -42,7 +42,7 @@
         "type": "Post",
         "url": "/blog/post-2"
       },
-      "documentHash": "1730973268460",
+      "documentHash": "1732081956530",
       "hasWarnings": false,
       "documentTypeName": "Post"
     }
